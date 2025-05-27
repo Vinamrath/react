@@ -9,7 +9,7 @@ const AboutPage = () => {
         <h1 className="text-center">About Us</h1>
         <hr />
         <p className="lead text-center">
-         
+          We are a modern retail platform offering a curated selection of fashion, jewelry, and electronics at unbeatable prices.
         </p>
 
         <h2 className="text-center py-4">Our Products</h2>
