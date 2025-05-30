@@ -26,14 +26,15 @@ const Cart = () => {
   const addItem = (product) => {
     dispatch(addCart(product));
   };
+
   const removeItem = (product) => {
     dispatch(delCart(product));
   };
 
   const ShowCart = () => {
-    let subtotal = state.reduce((acc, item) => acc + item.price * item.qty, 0);
-    let totalItems = state.reduce((acc, item) => acc + item.qty, 0);
-    let shipping = 30.0;
+    const subtotal = state.reduce((acc, item) => acc + item.price * item.qty, 0);
+    const totalItems = state.reduce((acc, item) => acc + item.qty, 0);
+    const shipping = 30.0;
 
     return (
       <section className="h-100 gradient-custom">
@@ -49,11 +50,11 @@ const Cart = () => {
                     <div key={item.id}>
                       <div className="row d-flex align-items-center">
                         <div className="col-lg-3 col-md-12">
-                          <div className="bg-image rounded" data-mdb-ripple-color="light">
+                          <div className="bg-image rounded">
                             <img
                               src={item.image}
-                              className="w-100"
                               alt={item.title}
+                              className="img-fluid"
                               width={100}
                               height={75}
                             />
@@ -68,11 +69,11 @@ const Cart = () => {
 
                         <div className="col-lg-4 col-md-6">
                           <div className="d-flex mb-4" style={{ maxWidth: "300px" }}>
-                            <button className="btn px-3" onClick={() => removeItem(item)}>
+                            <button className="btn btn-outline-secondary px-3" onClick={() => removeItem(item)}>
                               <i className="fas fa-minus"></i>
                             </button>
-                            <p className="mx-5">{item.qty}</p>
-                            <button className="btn px-3" onClick={() => addItem(item)}>
+                            <p className="mx-3 my-auto">{item.qty}</p>
+                            <button className="btn btn-outline-secondary px-3" onClick={() => addItem(item)}>
                               <i className="fas fa-plus"></i>
                             </button>
                           </div>
@@ -87,6 +88,7 @@ const Cart = () => {
                 </div>
               </div>
             </div>
+
             <div className="col-md-4">
               <div className="card mb-4">
                 <div className="card-header py-3 bg-light">
@@ -109,6 +111,7 @@ const Cart = () => {
                       </span>
                     </li>
                   </ul>
+
                   <Link to="/checkout" className="btn btn-dark btn-lg btn-block">
                     Go to checkout
                   </Link>
